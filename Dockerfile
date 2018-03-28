@@ -1,4 +1,4 @@
-FROM dxxpteam/xpspark
+FROM dxxpteam/xpspark:2.2
 RUN yum -y install gcc python-devel; yum clean all
 RUN pip install --upgrade matplotlib seaborn
 RUN curl -s http://wwwftp.ciril.fr/pub/apache/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3-bin-all.tgz | tar xz -C /opt
