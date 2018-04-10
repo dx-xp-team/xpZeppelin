@@ -1,0 +1,8 @@
+{
+  "type" : "VISUALIZATION",
+  "name" : "zeppelin-aggrid",
+  "description" : "Data visualization with Ag-Grid for Apache Zeppelin",
+  "artifact" : "zeppelin-aggrid@0.1.1",
+  "license" : "MIT",
+  "icon": "<i class='fa fa-table fa-rotate-270'></i>"
+}
