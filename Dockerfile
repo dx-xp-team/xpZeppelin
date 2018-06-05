@@ -23,7 +23,9 @@ RUN /var/zeppelin/dev/change_scala_version.sh 2.11
 # Fix "Cannot find where you keep your Bower packages. Use --force to continue"
 RUN cd /var/zeppelin/zeppelin-web;npm install -g bower;bower --allow-root install
 
-RUN cd /var/zeppelin; mvn -X package -Pbuild-distr -DskipTests -Pspark-2.3 -Phadoop-2.7 -Pyarn -Ppyspark -Psparkr -Pr -Pscala-2.11
+# building with -Pspark-2.3 failed to execute goal on project spark-scala-2.10
+HOT: The following artifacts could not be resolved: org.apache.spark:spark-repl_2.10:jar:2.3.0, org.apache.spark:spark-core_2.10:jar:2.3.0, org.apache.spark:spark-hive_2.10:jar:2.3.0: Could not find arti
+RUN cd /var/zeppelin; mvn -X package -Pbuild-distr -DskipTests -Pspark-2.2 -Phadoop-2.7 -Pyarn -Ppyspark -Psparkr -Pr -Pscala-2.11
 
 # Building the Zeppelin image based on compilation done in builder image
 FROM dxxpteam/xpspark:2.3
