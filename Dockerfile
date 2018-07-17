@@ -28,12 +28,12 @@ RUN cd /var/zeppelin; mvn -X package -Pbuild-distr -DskipTests -Pspark-2.2 -Phad
 
 # Building the Zeppelin image based on compilation done in builder image
 FROM dxxpteam/xpspark:2.3p3.6.4
-RUN yum -y install gcc
+RUN apt-get -y install gcc
 COPY --from=builder /var/zeppelin/zeppelin-distribution/target/*.tar.gz /opt/
 RUN gtar xvfz /opt/*.tar.gz --directory=/opt
 RUN rm /opt/*.tar.gz
 
-RUN yum -y install epel-release python-devel; yum clean all
+RUN apt-get -y epel-release python-devel
 RUN pip install --upgrade matplotlib seaborn jupyter grpcio
 RUN ln -s /opt/zeppelin-0.8.1-SNAPSHOT /opt/zeppelin
 WORKDIR /opt/zeppelin-0.8.1-SNAPSHOT
