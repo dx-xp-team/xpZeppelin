@@ -27,7 +27,7 @@ RUN cd /var/zeppelin/zeppelin-web;npm install -g bower;bower --allow-root instal
 RUN cd /var/zeppelin; mvn -X package -Pbuild-distr -DskipTests -Pspark-2.2 -Phadoop-2.7 -Pyarn -Ppyspark -Psparkr -Pr -Pscala-2.11
 
 # Building the Zeppelin image based on compilation done in builder image
-FROM dxxpteam/xpspark:2.3
+FROM dxxpteam/xpspark:2.3p3.6.4
 RUN yum -y install gcc
 COPY --from=builder /var/zeppelin/zeppelin-distribution/target/*.tar.gz /opt/
 RUN gtar xvfz /opt/*.tar.gz --directory=/opt
