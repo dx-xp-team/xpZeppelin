@@ -33,7 +33,7 @@ COPY --from=builder /var/zeppelin/zeppelin-distribution/target/*.tar.gz /opt/
 RUN tar xvf /opt/*.tar.gz --directory=/opt
 RUN rm /opt/*.tar.gz
 
-RUN apt-get -y epel-release python-devel
+RUN apt-get -y install epel-release python-devel
 RUN pip install --upgrade matplotlib seaborn jupyter grpcio
 RUN ln -s /opt/zeppelin-0.8.1-SNAPSHOT /opt/zeppelin
 WORKDIR /opt/zeppelin-0.8.1-SNAPSHOT
