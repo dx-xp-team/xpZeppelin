@@ -16,7 +16,7 @@ RUN ln -s /usr/local/apache-maven-3.3.9/bin/mvn /usr/local/bin/mvn
 RUN export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=1024m"
 
 RUN mkdir /var/zeppelin
-RUN git clone -b branch-0.8 https://github.com/apache/zeppelin.git  /var/zeppelin/
+RUN git clone https://github.com/apache/zeppelin.git  /var/zeppelin/
 
 RUN /var/zeppelin/dev/change_scala_version.sh 2.11
 
@@ -34,8 +34,8 @@ RUN tar xvf /opt/*.tar.gz --directory=/opt
 RUN rm /opt/*.tar.gz
 
 RUN pip3 install --upgrade matplotlib seaborn jupyter grpcio
-RUN ln -s /opt/zeppelin-0.8.1-SNAPSHOT /opt/zeppelin
-WORKDIR /opt/zeppelin-0.8.1-SNAPSHOT
+RUN ln -s /opt/zeppelin* /opt/zeppelin
+WORKDIR /opt/zeppelin
 RUN cp conf/shiro.ini.template conf/shiro.ini
 RUN sed -i 's/\#admin = password1/xp = vlab4xp/' conf/shiro.ini
 RUN sed -i 's/user1 = password2, role1, role2//' conf/shiro.ini
