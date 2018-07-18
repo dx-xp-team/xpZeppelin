@@ -30,7 +30,7 @@ RUN cd /var/zeppelin; mvn -X package -Pbuild-distr -DskipTests -Pspark-2.2 -Phad
 FROM dxxpteam/xpspark:2.3p3.6.4
 RUN apt-get -y install gcc
 COPY --from=builder /var/zeppelin/zeppelin-distribution/target/*.tar.gz /opt/
-RUN gtar xvfz /opt/*.tar.gz --directory=/opt
+RUN tar xvf /opt/*.tar.gz --directory=/opt
 RUN rm /opt/*.tar.gz
 
 RUN apt-get -y epel-release python-devel
