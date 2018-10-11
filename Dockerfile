@@ -33,7 +33,7 @@ COPY --from=builder /var/zeppelin/zeppelin-distribution/target/*.tar.gz /opt/
 RUN tar xvf /opt/*.tar.gz --directory=/opt
 RUN rm /opt/*.tar.gz
  
-RUN pip3 install --upgrade matplotlib seaborn jupyter grpcio
+RUN pip3 install --upgrade matplotlib seaborn jupyter grpcio mlflow
 RUN ln -s /opt/zeppelin-0.8.1-SNAPSHOT /opt/zeppelin
 WORKDIR /opt/zeppelin-0.8.1-SNAPSHOT
 RUN cp conf/shiro.ini.template conf/shiro.ini
