@@ -1,0 +1,10 @@
+[Unit]
+Description=mlflow UI
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/mlflowui.sh
+Restart=always
+
+[Install]
+WantedBy=default.target
