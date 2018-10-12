@@ -43,3 +43,5 @@ RUN sed -i 's/user2 = password3, role3//' conf/shiro.ini
 RUN sed -i 's/user3 = password4, role2//' conf/shiro.ini
 RUN cp conf/zeppelin-site.xml.template conf/zeppelin-site.xml
 RUN sed -i '/<name>zeppelin.anonymous.allowed<\/name>/{n;s/<value>.*<\/value>/<value>false<\/value>/;}' conf/zeppelin-site.xml
+COPY mlflowui.sh /usr/local/bin
+COPY mlflow-ui.service /usr/lib/systemd/user
