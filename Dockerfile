@@ -26,7 +26,7 @@ RUN cd /var/zeppelin/zeppelin-web;npm install -g bower;bower --allow-root instal
 # building with -Pspark-2.3 failed to execute goal on project spark-scala-2.10
 RUN cd /var/zeppelin; mvn -X package -Pbuild-distr -DskipTests -Pspark-2.2 -Phadoop-2.7 -Pyarn -Ppyspark -Psparkr -Pr -Pscala-2.11
 
-# Building the Zeppelin image based on compilation done in builder image
+# Building the Zeppelin image based on compilation done in  builder image
 FROM dxxpteam/xpspark:2.3p3.6.4
 RUN apt-get -y install gcc
 COPY --from=builder /var/zeppelin/zeppelin-distribution/target/*.tar.gz /opt/
