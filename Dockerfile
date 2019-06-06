@@ -20,7 +20,7 @@ RUN git clone https://github.com/apache/zeppelin.git  /var/zeppelin/
 
 RUN /var/zeppelin/dev/change_scala_version.sh 2.11
 
-# Fix "Cannot find where you keep your Bower packages. Use --force to continue"
+# Fix "Cannot find where you keep your Bower packages. Use --force to continue test new automated build"
 RUN cd /var/zeppelin/zeppelin-web;npm install -g bower;bower --allow-root install
 
 # building with -Pspark-2.3 failed to execute goal on project spark-scala-2.10
